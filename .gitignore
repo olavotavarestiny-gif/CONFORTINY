@@ -1,0 +1,10 @@
+.DS_Store
+.netlify/
+node_modules/
+package-lock.json
+
+# Fichiers de travail non utilises par le site publie
+/Avis/
+/Images/
+/docs/
+/tmp/
