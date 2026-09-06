@@ -267,7 +267,7 @@ function contact() {
 }
 
 function header(page) {
-  return `<header class="header">${logo()}<button class="menu-button" aria-label="Ouvrir le menu"><span></span><span></span></button><nav class="nav" aria-label="Navigation principale">${pages.map(([id, label]) => `<button data-page="${id}" class="${page === id ? 'active' : ''}">${label}</button>`).join('')}</nav>${externalButton('Prendre rendez-vous', content.contact.salonkeeUrl, 'button--terracotta header-cta')}</header>`
+  return `<header class="header">${logo()}<button class="menu-button" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="main-navigation"><span></span><span></span></button><nav class="nav" id="main-navigation" aria-label="Navigation principale">${pages.map(([id, label]) => `<button data-page="${id}" class="${page === id ? 'active' : ''}">${label}</button>`).join('')}${externalButton('Prendre rendez-vous', content.contact.salonkeeUrl, 'button--green mobile-nav-cta')}</nav>${externalButton('Prendre rendez-vous', content.contact.salonkeeUrl, 'button--terracotta header-cta')}</header>`
 }
 
 function footer() {
@@ -304,7 +304,21 @@ function render() {
     location.hash = element.dataset.page === 'accueil' ? '' : element.dataset.page
     scrollTo({ top: 0, behavior: 'smooth' })
   }))
-  document.querySelector('.menu-button').addEventListener('click', () => document.querySelector('.nav').classList.toggle('nav--open'))
+  const menuButton = document.querySelector('.menu-button')
+  const navigation = document.querySelector('.nav')
+  const closeMenu = () => {
+    navigation.classList.remove('nav--open')
+    menuButton.setAttribute('aria-expanded', 'false')
+    menuButton.setAttribute('aria-label', 'Ouvrir le menu')
+  }
+  menuButton.addEventListener('click', () => {
+    const isOpen = navigation.classList.toggle('nav--open')
+    menuButton.setAttribute('aria-expanded', String(isOpen))
+    menuButton.setAttribute('aria-label', isOpen ? 'Fermer le menu' : 'Ouvrir le menu')
+  })
+  document.onkeydown = event => {
+    if (event.key === 'Escape') closeMenu()
+  }
   setupAccordions()
   setupCarousel()
   setupAnimations()
