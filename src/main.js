@@ -1,12 +1,12 @@
 // CONTENU MODIFIABLE — changez ici les textes, tarifs, liens et coordonnées.
 const content = {
   brand: {
-    signature: 'Chaque soin raconte son histoire. Le vôtre.',
+    signature: 'Chaque soin raconte son histoire. La vôtre.',
     intro: 'Un espace calme et chaleureux où chaque personne est accueillie avec écoute, bienveillance et professionnalisme.'
   },
   contact: {
     phone: '+41 79 465 02 53',
-    email: 'À compléter',
+    email: 'Confortinyy@gmail.com',
     address: 'Rte de la Gare 37, 1869 Massongex, Suisse',
     parking: 'Place de parc disponible juste en face.',
     hours: [

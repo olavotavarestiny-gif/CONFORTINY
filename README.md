@@ -50,6 +50,15 @@ Le fichier `netlify.toml` configure déjà le site comme un projet statique sans
 
 Chaque nouvelle modification envoyée sur la branche `main` sera ensuite publiée automatiquement par Netlify.
 
+## Déployer sur Vercel
+
+Le fichier `vercel.json` configure le projet comme un site statique et publie la racine du dépôt.
+
+1. Importez le dépôt `site-confortiny` depuis GitHub.
+2. Utilisez **Other** comme Framework Preset.
+3. Gardez `.` comme Root Directory.
+4. Lancez le déploiement. Aucune commande de build ou d'installation n'est nécessaire.
+
 ## Évolution recommandée
 
 Pour permettre à la propriétaire de modifier les tarifs et la galerie depuis une interface, sans ouvrir les fichiers, la prochaine étape conseillée est de connecter ce même contenu à un CMS visuel (par exemple Decap CMS ou Sanity) lors du choix de l’hébergement et du nom de domaine.

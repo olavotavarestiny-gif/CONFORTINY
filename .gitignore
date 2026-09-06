@@ -9,3 +9,5 @@ package-lock.json
 /docs/
 /tmp/
 /confortiny/
+.vercel
+.env*
